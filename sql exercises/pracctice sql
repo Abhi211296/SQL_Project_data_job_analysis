@@ -1,0 +1,13 @@
+select 
+     c.name,
+     j.job_posted_date :: date as job_posted_date
+from company_dim as c
+join job_postings_fact as j
+on c.company_id = j.company_id
+where 
+       job_health_insurance = TRUE and 
+       job_posted_date >= '2023-04-01' and 
+       job_posted_date <= '2023-06-30' ;
+
+
+-- List of companies which have posted jobs with health insurance in the second quarter of 2023.
