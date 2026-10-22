@@ -22,3 +22,9 @@ SELECT * from
 order by max_salary desc;
 
 
+/*
+Top in-demand skills based on the number of job openings,
+along with the maximum salary for each skill,
+the corresponding job ID, and company name.
+*/
+
