@@ -5,7 +5,7 @@ SELECT * from
        
 
         s.skills,
-        count(j.job_id) 
+        count(sj.job_id) 
           over (partition by s.skill_id)
                as total_jobs,
          round(j.salary_year_avg,0) AS max_salary,
