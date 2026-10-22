@@ -9,3 +9,8 @@
     group by s.skills , sj.skill_id
     order by  total_jobs DESC
     limit 5;  
+
+
+    /*  Top demand skills based on number of 
+    job postings
+    */

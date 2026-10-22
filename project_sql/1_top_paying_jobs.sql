@@ -2,7 +2,6 @@
 
      select 
             c.name as company_name,
-            j.job_id,
             j.salary_year_avg
      from job_postings_fact as j 
      LEFT JOIN company_dim as c
@@ -16,5 +15,5 @@
      limit 10;
  
 
- /* top paying Data Analyst jobs with the 
- company name    */
+ /* top paying Data Analyst jobs by the 
+ company names    */

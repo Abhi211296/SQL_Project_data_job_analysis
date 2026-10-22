@@ -1,1 +1,5 @@
-to do: update the content of this later
+- Introduction
+- Background
+- Tools I Used
+- The Analysis
+

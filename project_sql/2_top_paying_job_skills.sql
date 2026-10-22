@@ -1,26 +1,32 @@
-with top_paying_jobs AS
-(
+with top_salaries AS
+( 
      select  
            job_id,
+           company_id,
            round(salary_year_avg, 0) as salary_year_avg
      From job_postings_fact as j
      WHERE job_title_short = 'Data Analyst' 
        and salary_year_avg is not NULL 
        and job_work_from_home = TRUE
-    order by salary_year_avg desc
- 
+     order by salary_year_avg desc
+     limit 10
 )
-select 
+select distinct on (s.skill_id)
       s.skills,
-      t.salary_year_avg
+     Max(ts.salary_year_avg) over (PARTITION BY s.skill_id) as max_salary,
+     ts.job_id,
+     c.name
       
-FROM top_paying_jobs as t
-inner JOIN skills_job_dim as sd
-            ON t.job_id = sd.job_id 
-INNER JOIN skills_dim as s
-        on sd.skill_id = s.skill_id
+FROM skills_dim as s
+JOIN skills_job_dim as sj
+            ON sj.skill_id = s.skill_id 
+JOIN top_salaries as ts
+            on ts.job_id  = sj.job_id
+join company_dim as c
+            on c.company_id = ts.company_id
 
-
-   limit 25;
-
- -- top skills for the Data Analyst remote position ,which paying highest salary.
+ORDER BY s.skill_id,  max_salary DESC;
+ 
+ /*  top salaries by skills for Data Analyst,
+ remote position and their job id and company_name */
+    
