@@ -7,7 +7,7 @@
     inner JOIN job_postings_fact as j on j.job_id = sj.job_id
     where job_title_short = 'Data Analyst'
     group by s.skills , sj.skill_id
-    order by  total_jobs DESC
+    order by  total_jobs DESC 
     limit 5;  
 
 

@@ -17,7 +17,7 @@ select distinct on (s.skill_id)
      ts.job_id,
      c.name
       
-FROM skills_dim as s
+FROM skills_dim as s 
 JOIN skills_job_dim as sj
             ON sj.skill_id = s.skill_id 
 JOIN top_salaries as ts
