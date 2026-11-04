@@ -1,6 +1,6 @@
 
      select  
-     s.skill_id,
+
      s.skills,
      count(distinct sj.job_id) as total_jobs,
      ROUND(AVG(j.salary_year_avg), 0) AS avg_salary
@@ -11,9 +11,9 @@
     where 
           job_title_short = 'Data Analyst' and 
           j.salary_year_avg is not NULL  
-     Group BY s.skill_id, s.skills    
+     Group BY s.skills
      HAVING   
-         count(sj.job_id) >= 200
+         count(sj.job_id) >= 100
 
     
      ORDER BY avg_salary DESC;
