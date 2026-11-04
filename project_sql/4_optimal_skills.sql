@@ -20,7 +20,6 @@
 
 
 /*
-Top in-demand skills based on the number of job openings(above),
-along with the maximum average salary for each skill.
+Top in-demand skills based on the number of job openings(above 200) along with the maximum average salary for each skill.
 */
 
